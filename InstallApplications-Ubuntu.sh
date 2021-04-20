@@ -5,11 +5,11 @@ rm /var/lib/dpkg/lock-frontend
 rm /var/cache/apt/archives/lock
 
 ## Update repository
-apt-get update
+apt update
 
-apt-get remove docker docker-engine docker.io containerd runc
+apt remove docker docker-engine docker.io containerd runc
 
-apt-get install -y \
+apt install -y \
 	apt-transport-https \
 	ca-certificates \
 	curl \
@@ -45,8 +45,9 @@ chsh -s $(which zsh)
 ## Adding repositorys
 ## Google Chrome
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+add-apt-repository --yes ppa:kicad/kicad-5.1-releases
 
-apt-get update
+apt update
 
 ## Install applications
 ## Oh My Zsh
@@ -56,8 +57,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
 
 ## Outhers
-apt-get install docker-ce docker-ce-cli containerd.io \
-	google-chrome-stable
+apt install --install-recommends kicad
+apt install kicad-demos google-chrome-stable
 
 ## Configuring applications
 ## asdf - nodejs - yarn
